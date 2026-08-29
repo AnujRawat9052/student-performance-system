@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Performance Analysis</title>
+</head>
+
+<body>
+
+    <h1>Student Performance Analysis</h1>
+
+    <h2>Average Student Data</h2>
+
+    <p>Average Attendance: {{ average_attendance }}</p>
+
+    <p>Average Study Hours: {{ average_study_hours }}</p>
+
+    <p>Average Assignment Marks: {{ average_assignment }}</p>
+
+    <p>Average Internal Marks: {{ average_internal }}</p>
+
+    <p>Average Practical Marks: {{ average_practical }}</p>
+
+    <p>Average Previous Marks: {{ average_previous }}</p>
+
+    <br>
+
+    <h2>Graphical Analysis</h2>
+
+    <img src="{{ url_for('static', filename='average_marks.png') }}"
+        alt="Average Marks Graph"
+        width="700">
+
+
+    <h2>Attendance vs Study Hours</h2>
+
+    <img src="{{ url_for('static', filename='attendance_study.png') }}"
+        alt="Attendance vs Study Hours Graph"
+        width="700">
+
+    <a href="/">Back to Home</a>
+
+</body>
+</html>

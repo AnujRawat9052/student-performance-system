@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Students</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Student Records</h1>
+
+    {% if students %}
+
+    <table class="student-table">
+
+        <tr>
+            <th>Student ID</th>
+            <th>Name</th>
+            <th>Attendance</th>
+            <th>Study Hours</th>
+            <th>Assignment Marks</th>
+            <th>Internal Marks</th>
+            <th>Practical Marks</th>
+            <th>Previous Marks</th>
+        </tr>
+
+        {% for student in students %}
+
+        <tr>
+            <td>{{ student["Student ID"] }}</td>
+            <td>{{ student["Name"] }}</td>
+            <td>{{ student["Attendance"] }}</td>
+            <td>{{ student["Study Hours"] }}</td>
+            <td>{{ student["Assignment Marks"] }}</td>
+            <td>{{ student["Internal Marks"] }}</td>
+            <td>{{ student["Practical Marks"] }}</td>
+            <td>{{ student["Previous Marks"] }}</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    {% else %}
+
+    <p>No students found.</p>
+
+    {% endif %}
+
+    <br>
+
+    <a href="/add-student">Add Another Student</a>
+    <br><br>
+    <a href="/">Back to Home</a>
+
+</div>
+
+</body>
+</html>

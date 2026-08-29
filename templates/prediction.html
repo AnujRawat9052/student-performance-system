@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Performance Prediction</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 30px;
+        }
+
+        form {
+            background-color: white;
+            width: 400px;
+            margin: 30px auto;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 8px;
+        }
+
+        button {
+            padding: 10px 25px;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        .result {
+            background-color: white;
+            width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Student Performance Prediction</h1>
+
+    <form action="/prediction" method="POST">
+
+        <input type="number" name="attendance"
+               placeholder="Attendance (%)" required>
+
+        <input type="number" step="0.1" name="study_hours"
+               placeholder="Study Hours" required>
+
+        <input type="number" name="assignment_marks"
+               placeholder="Assignment Marks" required>
+
+        <input type="number" name="internal_marks"
+               placeholder="Internal Marks" required>
+
+        <input type="number" name="practical_marks"
+               placeholder="Practical Marks" required>
+
+        <input type="number" name="previous_marks"
+               placeholder="Previous Marks" required>
+
+        <button type="submit">Predict Performance</button>
+
+    </form>
+
+
+    {% if prediction %}
+
+    <div class="result">
+
+        <h2>Prediction Result</h2>
+
+        <h3>{{ prediction }}</h3>
+
+        <p>Performance Score: {{ score }}</p>
+
+    </div>
+
+    {% endif %}
+
+
+    <a href="/">Back to Home</a>
+
+</body>
+</html>

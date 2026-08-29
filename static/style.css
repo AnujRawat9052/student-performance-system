@@ -1,0 +1,87 @@
+body{
+    font-family: Arial, sans-serif;
+    background-color: #84c2eb;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    width: 600px;
+    margin: 40px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px gray;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+form{
+    width: 100%;
+}
+
+label{
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 7px;
+    font-weight: bold;  
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 25px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+.menu a {
+    display: inline-block;
+    padding: 15px 25px;
+    margin: 10px;
+    text-decoration: none;
+    border: 1px solid #333;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.student-table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.student-table th,
+.student-table td{
+    border:  1px solid black;
+    padding: 5px;
+    text-align: center;
+}
+
+.student-table th{
+    font-weight: bold;
+}
