@@ -66,21 +66,30 @@ def students():
 
     return render_template("students.html", students=students)
 
-
 @app.route("/analysis")
 def analysis():
+
     df = pd.read_csv("students.csv")
 
-      
-    average_attendance = df["Attendance"].mean()
-    average_study_hours = df["Study Hours"].mean()
-    average_assignment =  df["Assignment Marks"].mean()
-    average_internal =  df["Internal Marks"].mean()
-    average_practical =  df["Practical Marks"].mean()
-    average_previous =  df["Previous Marks"].mean()
+    # Average student data
 
-    
-    # Data for graph 1
+    average_attendance = df["Attendance"].mean()
+
+    average_study_hours = df["Study Hours"].mean()
+
+    average_assignment = df["Assignment"].mean()
+
+    average_internal = df["Internal"].mean()
+
+    average_practical = df["Practical"].mean()
+
+    average_previous = df["Previous Marks"].mean()
+
+
+    # -----------------------------
+    # Graph 1: Average Marks
+    # -----------------------------
+
     subjects = [
         "Assignment",
         "Internal",
@@ -95,43 +104,82 @@ def analysis():
         average_previous
     ]
 
-    #create graph 
+
     plt.figure(figsize=(8, 5))
+
     plt.bar(subjects, average)
 
     plt.title("Average Students Marks")
+
     plt.xlabel("Assignment Type")
+
     plt.ylabel("Average Marks")
 
     plt.tight_layout()
 
-    #save graph
     plt.savefig("static/average_marks.png")
+
     plt.close()
 
-    # Attendance vs Study Hours graph
+
+    # -----------------------------
+    # Graph 2: Attendance vs Study Hours
+    # -----------------------------
+
     plt.figure(figsize=(8, 5))
 
-    plt.scatter(df["Study Hours"], df["Attendance"])
+    plt.scatter(
+        df["Study Hours"],
+        df["Attendance"]
+    )
 
     plt.title("Attendance vs Study Hours")
+
     plt.xlabel("Study Hours")
+
     plt.ylabel("Attendance")
 
     plt.tight_layout()
+
     plt.savefig("static/attendance_study.png")
+
     plt.close()
-            
+
+
+    # -----------------------------
+    # Send data to HTML
+    # -----------------------------
+
     return render_template(
         "analysis.html",
-        average_attendance=round(average_attendance, 2),
-        average_study_hours=round(average_study_hours, 2),
-        average_assignment=round(average_assignment, 2),
-        average_internal=round(average_internal, 2),
-        average_practical=round(average_practical, 2),
-        average_previous=round(average_previous, 2)
+
+        average_attendance=round(
+            average_attendance, 2
+        ),
+
+        average_study_hours=round(
+            average_study_hours, 2
+        ),
+
+        average_assignment=round(
+            average_assignment, 2
+        ),
+
+        average_internal=round(
+            average_internal, 2
+        ),
+
+        average_practical=round(
+            average_practical, 2
+        ),
+
+        average_previous=round(
+            average_previous, 2
+        )
     )
 
+
+   
 
 @app.route("/prediction", methods=["GET", "POST"])
 def prediction():
