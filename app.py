@@ -179,8 +179,6 @@ def analysis():
     )
 
 
-   
-
 @app.route("/prediction", methods=["GET", "POST"])
 def prediction():
 
